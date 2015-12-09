@@ -1,0 +1,18 @@
+<h1>Settings</h1>
+
+<%= link_to 'Add a Setting', new_setting_path %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+  </tr>
+
+  <% @settings.each do |setting| %>
+    <tr>
+      <td><%= setting.name %></td>
+      <td><%= setting.value %></td>
+      <td><%= link_to 'Edit', edit_setting_path(setting) %></td>
+      <td><%= link_to 'Destroy', setting_path(setting), method: :delete, data: {confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

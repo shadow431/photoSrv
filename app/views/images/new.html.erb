@@ -1,0 +1,36 @@
+<h1>Add new photos</h1>
+  <table>
+    <tr>
+      <th>Image</th>
+      <th>Ignore</th>
+      <th>Filename</th>
+      <th>md5</th>
+      <th>dir</th>
+      <th>orientation</th>
+      <th>tags</th>
+      <th>date</th>
+      <th>date is Est.</th>
+    </tr>
+    <%= form_tag(controller: "images") do %>
+    <% id=0 %>
+      <% @files.each do |i| %>
+        <tr>
+          <%= fields_for("image[]") do |f| %>
+          <td><%= image_tag "thumbs/#{i['md5']}.#{i['filename'][-3,3]}" %></td>
+          <td><%= check_box_tag 'image[][ignore]' %></td>
+          <td><%= f.hidden_field :filename, :value => i['filename'] %><%= i['filename']%></td>
+          <td><%= f.hidden_field :preMd5, :value => i['md5'] %><%= i['md5'] %></td>
+          <td><%= f.hidden_field :dir, :value => i['dir'] %><%= i['dir'] %></td>
+          <td><%= f.check_box :orientation %></td>
+          <td><%= f.text_field :tags %></td>
+          <td><%= f.datetime_field :dateTaken, :value => i['dateTaken'] %></td>
+          <td><%= f.check_box :dateIsEstimate %></td>
+          <% id=id+1 %>
+          <% end %>
+        </tr>
+      <% end %>
+      <tr>
+        <td><%= submit_tag "Submit", class: "btn btn-primary" %></td>
+      </tr>
+    <% end %>
+  </table>

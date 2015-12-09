@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  filename: MyString
+  preMd5: MyString
+  postMd5: MyString
+  dir: MyString
+  orientation: MyString
+  tags: MyText
+  dateTaken: 2015-11-14 15:57:01
+  dateIsEstimate: false
+
+two:
+  filename: MyString
+  preMd5: MyString
+  postMd5: MyString
+  dir: MyString
+  orientation: MyString
+  tags: MyText
+  dateTaken: 2015-11-14 15:57:01
+  dateIsEstimate: false
