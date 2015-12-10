@@ -30,15 +30,15 @@ Please feel free to use a different markup language if you do not plan to run
 
 INSTALL
 -----------------
-bundle install --path=vendor/cache
-setup/place "./config/{database,secrets}.yml"
-bundle exec rake db:migrate
-bundle exec rails server -b 0.0.0.0
-go to http://<YOURIP>:3000
-click settings
-add two settings:
-directory => ["<DIR>/"]
-resolutions => ["800x480"]
+* bundle install --path=vendor/cache
+* setup/place "./config/{database,secrets}.yml"
+* bundle exec rake db:migrate
+* bundle exec rails server -b 0.0.0.0
+* go to http://<YOURIP>:3000
+* click settings
+* add two settings:
+* directory => ["<DIR>/"]
+* resolutions => ["800x480"]
 
 
 
