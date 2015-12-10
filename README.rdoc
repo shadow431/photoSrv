@@ -34,7 +34,7 @@ INSTALL
 * setup/place "./config/{database,secrets}.yml"
 * bundle exec rake db:migrate
 * bundle exec rails server -b 0.0.0.0
-* go to http://<YOURIP>:3000
+* go to http://<YOURIP>:3000/
 * click settings
 * add two settings:
 * directory => ["<DIR>/"]
