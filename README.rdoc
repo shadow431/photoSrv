@@ -46,3 +46,4 @@ TODO
 ------------------------
 "Home" button from {settings,images}
 check for /app/assests/images/thumbs
+move Images.tags => own table
