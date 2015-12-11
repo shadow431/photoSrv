@@ -2,6 +2,7 @@ require 'json'
 #require 'exifr'
 require 'rmagick'
 require 'digest'
+require 'zip'
 
 class ImagesController < ApplicationController
 
@@ -119,7 +120,25 @@ class ImagesController < ApplicationController
   end
 
   def retrieve
-    @images = Image.all
+    allImages = Image.all
+    randImages = allImages.sample(10)
+    filename = 'photos.zip'
+    temp_file = Tempfile.new(filename)
+    res = params[:res]
+    begin
+      #Zip::OutputStream.open(temp_file) {|zos|}
+      Zip::File.open(temp_file.path, Zip::File::CREATE) do |zip|
+        randImages.each do |i|
+          zip.add(i['filename'],"./app/assets/images/#{res}/#{i['preMd5']}.#{i['filename'][-3,3]}")
+        end
+      end
+
+      zip_data = File.read(temp_file.path)
+      send_data(zip_data, :type => 'application/zip', :filename => filename)
+    ensure
+      temp_file.close
+      temp_file.unlink
+    end
   end
 
   private
