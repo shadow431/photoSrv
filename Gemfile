@@ -47,3 +47,4 @@ end
 gem 'exifr'
 gem 'rmagick'
 gem 'rubyzip'
+gem 'will_paginate', '>= 3.1' 
